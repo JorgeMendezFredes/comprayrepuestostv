@@ -1,0 +1,36 @@
+---
+interface FAQItem {
+    question: string;
+    answer: string;
+}
+
+interface Props {
+    items: FAQItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="faq-list">
+    {
+        items.map((item, index) => (
+            <details class="faq-item">
+                <summary class="faq-question">
+                    {item.question}
+                    <svg
+                        class="faq-icon"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    >
+                        <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                </summary>
+                <div class="faq-answer">
+                    <p>{item.answer}</p>
+                </div>
+            </details>
+        ))
+    }
+</div>

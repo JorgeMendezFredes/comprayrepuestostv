@@ -1,0 +1,8 @@
+---
+import { siteData } from "../content/siteData";
+---
+
+<div class="brands-list">
+    {siteData.brands.map((brand) => <span class="brand-pill">{brand}</span>)}
+    <span class="brand-pill">y otras</span>
+</div>

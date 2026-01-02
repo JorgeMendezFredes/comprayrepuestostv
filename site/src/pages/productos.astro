@@ -1,0 +1,205 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import CTAButtons from "../components/CTAButtons.astro";
+import ContactBlock from "../components/ContactBlock.astro";
+import ImagePlaceholder from "../components/ImagePlaceholder.astro";
+import { siteData, waLink } from "../content/siteData";
+import { seoData } from "../content/seo";
+
+const path = "/productos";
+const seo = seoData[path];
+---
+
+<BaseLayout path={path}>
+    <div class="container">
+        <Breadcrumbs items={seo.breadcrumbs} />
+    </div>
+
+    <!-- Hero -->
+    <section class="hero section">
+        <div class="container">
+            <h1 class="hero-title">
+                Productos y Accesorios para TV en Pudahuel
+            </h1>
+            <p class="hero-subtitle">
+                Controles remotos, bases y patas para televisores. Múltiples
+                marcas disponibles. Cotiza por WhatsApp.
+            </p>
+            <CTAButtons whatsappMessage={siteData.whatsappMessages.productos} />
+        </div>
+    </section>
+
+    <!-- Controles remotos -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Controles Remotos</h2>
+            <div class="grid grid-2">
+                <div>
+                    <p>
+                        Venta de controles remotos para distintas marcas y
+                        modelos de televisores.
+                    </p>
+                    <ul
+                        style="list-style: disc; padding-left: 1.5rem; margin-top: 1rem;"
+                    >
+                        <li>Controles para Smart TV</li>
+                        <li>Controles para TV LED</li>
+                        <li>Múltiples marcas disponibles</li>
+                        <li><strong>Incluyen pilas</strong></li>
+                    </ul>
+                    <p class="mt-lg">
+                        <strong>Marcas:</strong> LG, Samsung, TCL, Hisense, Xiaomi,
+                        AOC, Panasonic, Philips y otras.
+                    </p>
+                    <div class="mt-lg">
+                        <a
+                            href={waLink(siteData.whatsappMessages.productos)}
+                            class="btn btn-primary"
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            Cotizar control remoto
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <ImagePlaceholder
+                        title="Controles remotos"
+                        description="Imagen de controles remotos de diferentes marcas"
+                        suggestedPrompt="Varios controles remotos de televisores de diferentes marcas sobre superficie blanca"
+                        sizeHint="600x400"
+                    />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bases de TV -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Bases de Televisor</h2>
+            <div class="grid grid-2">
+                <div>
+                    <ImagePlaceholder
+                        title="Bases de TV"
+                        description="Imagen de bases de televisores de diferentes tamaños"
+                        suggestedPrompt="Bases de escritorio para televisores de diferentes tamaños, color negro"
+                        sizeHint="600x400"
+                    />
+                </div>
+                <div>
+                    <p>
+                        Venta de bases de televisor originales o compatibles
+                        según modelo.
+                    </p>
+                    <ul
+                        style="list-style: disc; padding-left: 1.5rem; margin-top: 1rem;"
+                    >
+                        <li>Bases tipo pedestal</li>
+                        <li>Para diferentes tamaños de pantalla</li>
+                        <li>Consulta disponibilidad según marca y modelo</li>
+                    </ul>
+                    <div class="mt-lg">
+                        <a
+                            href={waLink(siteData.whatsappMessages.productos)}
+                            class="btn btn-primary"
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            Cotizar base de TV
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Patas de TV -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Patas de Televisor</h2>
+            <div class="grid grid-2">
+                <div>
+                    <p>Venta de patas de televisor originales o compatibles.</p>
+                    <ul
+                        style="list-style: disc; padding-left: 1.5rem; margin-top: 1rem;"
+                    >
+                        <li>Patas laterales para diferentes modelos</li>
+                        <li>Originales o compatibles</li>
+                        <li>Consulta disponibilidad según tu TV</li>
+                    </ul>
+                    <div class="mt-lg">
+                        <a
+                            href={waLink(siteData.whatsappMessages.productos)}
+                            class="btn btn-primary"
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            Cotizar patas de TV
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <ImagePlaceholder
+                        title="Patas de TV"
+                        description="Imagen de patas de televisores"
+                        suggestedPrompt="Patas laterales de televisor LED, color negro mate, sobre fondo neutro"
+                        sizeHint="600x400"
+                    />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cómo cotizar -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">¿Cómo cotizar?</h2>
+            <div class="card" style="max-width: 600px; margin: 0 auto;">
+                <p>Para cotizar un producto, envíanos por WhatsApp:</p>
+                <ul
+                    style="list-style: decimal; padding-left: 1.5rem; margin-top: 1rem;"
+                >
+                    <li>Marca del televisor</li>
+                    <li>Modelo exacto</li>
+                    <li>Producto que necesitas (control, base o patas)</li>
+                </ul>
+                <p class="mt-lg text-muted">
+                    Te confirmamos disponibilidad y precio.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Retiro y despacho -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Retiro y Despacho</h2>
+            <div class="grid grid-2">
+                <div class="card">
+                    <h3 class="card-title">Retiro en Local</h3>
+                    <p class="card-text">
+                        Retira tu producto en nuestro local en Pudahuel.
+                        Horario: lunes a domingo, 09:00 a 18:00.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Despacho Nacional</h3>
+                    <p class="card-text">
+                        Enviamos a todo Chile previo pago del producto y el
+                        envío.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">¿Necesitas un accesorio?</h2>
+            <ContactBlock />
+        </div>
+    </section>
+</BaseLayout>

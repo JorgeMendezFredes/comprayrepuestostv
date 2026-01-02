@@ -1,0 +1,218 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CTAButtons from "../components/CTAButtons.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import Steps from "../components/Steps.astro";
+import TrustBlock from "../components/TrustBlock.astro";
+import BrandsBlock from "../components/BrandsBlock.astro";
+import FAQAccordion from "../components/FAQAccordion.astro";
+import ContactBlock from "../components/ContactBlock.astro";
+import ImagePlaceholder from "../components/ImagePlaceholder.astro";
+import { siteData, waLink } from "../content/siteData";
+
+// Servicios para las cards
+const services = [
+	{
+		title: "Compra de Televisores",
+		description:
+			"Compramos televisores quebrados, dañados o en mal estado. Distintas marcas y tamaños.",
+		whatsappMessage: siteData.whatsappMessages.compra,
+		icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect><polyline points="17 2 12 7 7 2"></polyline></svg>`,
+	},
+	{
+		title: "Repuestos de Televisores",
+		description:
+			"Venta de repuestos según disponibilidad. Stock multimarcas.",
+		whatsappMessage: siteData.whatsappMessages.repuestos,
+		icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>`,
+	},
+	{
+		title: "Reparación de Televisores",
+		description:
+			"Cambio de pantalla, LEDs, placas, formateo y programación.",
+		whatsappMessage: siteData.whatsappMessages.reparacion,
+		icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>`,
+	},
+	{
+		title: "Controles Remotos",
+		description:
+			"Controles remotos para distintas marcas y modelos. Incluyen pilas.",
+		whatsappMessage: siteData.whatsappMessages.productos,
+		icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="2" width="12" height="20" rx="2"></rect><line x1="12" y1="18" x2="12" y2="18"></line></svg>`,
+	},
+	{
+		title: "Bases y Patas de TV",
+		description:
+			"Bases y patas originales o compatibles según modelo de televisor.",
+		whatsappMessage: siteData.whatsappMessages.productos,
+		icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>`,
+	},
+];
+
+// Pasos para compra
+const stepsCompra = [
+	{
+		title: "Contacta",
+		description:
+			"Escríbenos por WhatsApp o llámanos con los datos de tu TV.",
+	},
+	{
+		title: "Cotizamos",
+		description: "Evaluamos el estado y te damos una oferta.",
+	},
+	{
+		title: "Retiramos",
+		description: "Coordinamos el retiro según cercanía o entrega en local.",
+	},
+];
+
+// Pasos para repuestos
+const stepsRepuestos = [
+	{
+		title: "Consulta",
+		description: "Envía marca, modelo y repuesto que necesitas.",
+	},
+	{
+		title: "Confirmamos",
+		description: "Verificamos stock y te damos el precio.",
+	},
+	{
+		title: "Entrega",
+		description: "Retiro en local o despacho previo pago.",
+	},
+];
+---
+
+<BaseLayout path="/" showLocalBusiness={true}>
+	<!-- Hero -->
+	<section class="hero section">
+		<div class="container">
+			<h1 class="hero-title">
+				Compra y Repuestos de Televisores en Pudahuel
+			</h1>
+			<p class="hero-subtitle">
+				Compramos televisores en cualquier estado y vendemos repuestos
+				multimarcas. Más de 30 años de experiencia. Atención rápida por
+				WhatsApp.
+			</p>
+			<CTAButtons />
+		</div>
+	</section>
+
+	<!-- Placeholder Hero Image -->
+	<section class="section section-alt">
+		<div class="container">
+			<ImagePlaceholder
+				title="Imagen del local o repuestos"
+				description="Foto de la fachada del local o estanterías con repuestos de televisores"
+				suggestedPrompt="Tienda de repuestos de televisores con estanterías llenas de componentes electrónicos, ambiente profesional"
+				sizeHint="1600x600 (hero banner)"
+			/>
+		</div>
+	</section>
+
+	<!-- Servicios -->
+	<section class="section">
+		<div class="container">
+			<h2 class="section-title">Nuestros Servicios</h2>
+			<div class="grid grid-3">
+				{
+					services.map((service) => (
+						<ServiceCard
+							title={service.title}
+							description={service.description}
+							icon={service.icon}
+							whatsappMessage={service.whatsappMessage}
+						/>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<!-- Cómo funciona - Compra -->
+	<section class="section section-alt">
+		<div class="container">
+			<h2 class="section-title">¿Cómo vendernos tu televisor?</h2>
+			<Steps steps={stepsCompra} />
+		</div>
+	</section>
+
+	<!-- Cómo funciona - Repuestos -->
+	<section class="section">
+		<div class="container">
+			<h2 class="section-title">¿Cómo comprar repuestos?</h2>
+			<Steps steps={stepsRepuestos} />
+		</div>
+	</section>
+
+	<!-- Cobertura -->
+	<section class="section section-alt">
+		<div class="container">
+			<h2 class="section-title">Cobertura y Envíos</h2>
+			<div class="grid grid-3">
+				<div class="card">
+					<h3 class="card-title">Compra Nacional</h3>
+					<p class="card-text">
+						Compramos televisores de todo Chile. El vendedor envía y
+						paga el envío.
+					</p>
+				</div>
+				<div class="card">
+					<h3 class="card-title">Venta Nacional</h3>
+					<p class="card-text">
+						Despachamos repuestos a todo Chile previo pago del
+						despacho.
+					</p>
+				</div>
+				<div class="card">
+					<h3 class="card-title">Atención en Local</h3>
+					<p class="card-text">
+						Visítanos en Pudahuel o coordina retiro/entrega según
+						cercanía.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Marcas -->
+	<section class="section">
+		<div class="container">
+			<h2 class="section-title">Marcas que Trabajamos</h2>
+			<BrandsBlock />
+		</div>
+	</section>
+
+	<!-- Confianza -->
+	<section class="section section-alt">
+		<div class="container">
+			<h2 class="section-title">¿Por qué elegirnos?</h2>
+			<TrustBlock />
+			<div class="mt-xl">
+				<ImagePlaceholder
+					title="Foto del mesón o atención"
+					description="Imagen del área de atención al cliente o mesón de trabajo"
+					suggestedPrompt="Mesón de atención de tienda de electrónica, ambiente ordenado y profesional"
+					sizeHint="1200x600"
+				/>
+			</div>
+		</div>
+	</section>
+
+	<!-- FAQ -->
+	<section class="section">
+		<div class="container">
+			<h2 class="section-title">Preguntas Frecuentes</h2>
+			<FAQAccordion items={siteData.faqItems} />
+		</div>
+	</section>
+
+	<!-- Contacto rápido -->
+	<section class="section section-alt">
+		<div class="container">
+			<h2 class="section-title">Contáctanos</h2>
+			<ContactBlock />
+		</div>
+	</section>
+</BaseLayout>

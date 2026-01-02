@@ -1,0 +1,66 @@
+---
+import { siteData, waLink, telLink, fullAddress } from "../content/siteData";
+
+const navLinks = [
+    { href: "/", label: "Inicio" },
+    { href: "/compra-de-televisores", label: "Compra de Televisores" },
+    { href: "/repuestos-de-televisores", label: "Repuestos" },
+    { href: "/reparacion-de-televisores", label: "Reparación" },
+    { href: "/productos", label: "Productos" },
+    { href: "/contacto", label: "Contacto" },
+];
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-about">
+                <h3 class="footer-title">{siteData.siteName}</h3>
+                <p>
+                    Compra de televisores, venta de repuestos y servicio
+                    técnico. Más de 30 años de experiencia en el rubro.
+                </p>
+                <p>
+                    <strong>Atención por WhatsApp, teléfono y en local.</strong>
+                </p>
+            </div>
+
+            <div class="footer-links">
+                <h4 class="footer-title">Navegación</h4>
+                <nav class="footer-nav">
+                    {
+                        navLinks.map((link) => (
+                            <a href={link.href}>{link.label}</a>
+                        ))
+                    }
+                </nav>
+            </div>
+
+            <div class="footer-contact">
+                <h4 class="footer-title">Contacto</h4>
+                <p>
+                    <a href={telLink()}>{siteData.phoneDisplay}</a>
+                </p>
+                <p>{fullAddress()}</p>
+                <p>{siteData.openingHoursText}</p>
+                <a
+                    href={waLink()}
+                    class="btn btn-primary mt-md"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    WhatsApp
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>
+                &copy; {currentYear}
+                {siteData.siteName}. Todos los derechos reservados.
+            </p>
+        </div>
+    </div>
+</footer>

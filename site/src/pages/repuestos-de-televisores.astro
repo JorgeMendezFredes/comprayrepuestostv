@@ -1,0 +1,187 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import CTAButtons from "../components/CTAButtons.astro";
+import Steps from "../components/Steps.astro";
+import BrandsBlock from "../components/BrandsBlock.astro";
+import FAQAccordion from "../components/FAQAccordion.astro";
+import ContactBlock from "../components/ContactBlock.astro";
+import ImagePlaceholder from "../components/ImagePlaceholder.astro";
+import { siteData, waLink } from "../content/siteData";
+import { seoData } from "../content/seo";
+
+const path = "/repuestos-de-televisores";
+const seo = seoData[path];
+
+const steps = [
+    {
+        title: "Consulta",
+        description:
+            "Envía por WhatsApp la marca, modelo y el repuesto que necesitas. Si tienes foto, inclúyela.",
+    },
+    {
+        title: "Confirmamos",
+        description:
+            "Verificamos disponibilidad en nuestro stock y te damos el precio.",
+    },
+    {
+        title: "Entrega",
+        description:
+            "Retira en nuestro local o coordinamos despacho previo pago.",
+    },
+];
+
+const faqItems = [
+    {
+        question: "¿Cuánto cuesta el repuesto?",
+        answer: "El precio varía según el repuesto y modelo. Contáctanos con los detalles para cotizar.",
+    },
+    {
+        question: "¿Tienen stock del repuesto que necesito?",
+        answer: "El stock varía según disponibilidad. Consulta por WhatsApp para confirmar.",
+    },
+    {
+        question: "¿Despachan a regiones?",
+        answer: "Sí, despachamos a todo Chile previo pago del envío.",
+    },
+];
+---
+
+<BaseLayout path={path}>
+    <div class="container">
+        <Breadcrumbs items={seo.breadcrumbs} />
+    </div>
+
+    <!-- Hero -->
+    <section class="hero section">
+        <div class="container">
+            <h1 class="hero-title">Repuestos de Televisores en Santiago</h1>
+            <p class="hero-subtitle">
+                Venta de repuestos para televisores según disponibilidad. Stock
+                multimarcas. Despacho a todo Chile.
+            </p>
+            <CTAButtons whatsappMessage={siteData.whatsappMessages.repuestos} />
+        </div>
+    </section>
+
+    <!-- Qué vendemos -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">¿Qué repuestos vendemos?</h2>
+            <div class="grid grid-2">
+                <div>
+                    <p>
+                        Vendemos repuestos para televisores LED y Smart TV según
+                        disponibilidad en stock:
+                    </p>
+                    <ul
+                        style="list-style: disc; padding-left: 1.5rem; margin-top: 1rem;"
+                    >
+                        <li>Placas principales (mainboard)</li>
+                        <li>Placas de fuente (power supply)</li>
+                        <li>Placas T-CON</li>
+                        <li>Tiras de LED (backlight)</li>
+                        <li>Cables flex</li>
+                        <li>Otros componentes según disponibilidad</li>
+                    </ul>
+                    <p class="mt-lg text-muted">
+                        El stock cambia constantemente. Consulta por WhatsApp
+                        para confirmar disponibilidad del repuesto que
+                        necesitas.
+                    </p>
+                </div>
+                <div>
+                    <ImagePlaceholder
+                        title="Estanterías con repuestos"
+                        description="Imagen de estanterías organizadas con repuestos de televisores"
+                        suggestedPrompt="Estanterías de tienda de electrónica llenas de placas y componentes de televisores, ambiente ordenado"
+                        sizeHint="600x400"
+                    />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cómo cotizar -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">¿Cómo cotizar un repuesto?</h2>
+            <Steps steps={steps} />
+            <div class="mt-xl text-center">
+                <div class="card" style="max-width: 600px; margin: 0 auto;">
+                    <p><strong>Para cotizar, envíanos por WhatsApp:</strong></p>
+                    <ul
+                        style="list-style: decimal; padding-left: 1.5rem; margin-top: 1rem; text-align: left;"
+                    >
+                        <li>Marca del televisor</li>
+                        <li>
+                            Modelo exacto (lo encuentras en la parte trasera)
+                        </li>
+                        <li>Repuesto que necesitas</li>
+                        <li>Foto del repuesto o del TV (opcional)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Retiro y despacho -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Retiro y Despacho</h2>
+            <div class="grid grid-2">
+                <div class="card">
+                    <h3 class="card-title">Retiro en Local</h3>
+                    <p class="card-text">
+                        Puedes retirar tu repuesto directamente en nuestro local
+                        en Pudahuel. Horario de atención: lunes a domingo, 09:00
+                        a 18:00.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Despacho Nacional</h3>
+                    <p class="card-text">
+                        Despachamos a todo Chile previo pago del repuesto y el
+                        envío. Coordinamos por WhatsApp.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marcas -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Marcas que Trabajamos</h2>
+            <BrandsBlock />
+        </div>
+    </section>
+
+    <!-- Placeholder imagen -->
+    <section class="section section-alt">
+        <div class="container">
+            <ImagePlaceholder
+                title="Close-up de repuestos"
+                description="Imagen de cerca de repuestos genéricos como placas o tiras LED"
+                suggestedPrompt="Close-up de placa electrónica de televisor LED, componentes visibles, fondo neutro"
+                sizeHint="1200x600"
+            />
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Preguntas Frecuentes</h2>
+            <FAQAccordion items={faqItems} />
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">¿Necesitas un repuesto?</h2>
+            <ContactBlock />
+        </div>
+    </section>
+</BaseLayout>

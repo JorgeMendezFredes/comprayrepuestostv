@@ -1,0 +1,191 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import CTAButtons from "../components/CTAButtons.astro";
+import Steps from "../components/Steps.astro";
+import FAQAccordion from "../components/FAQAccordion.astro";
+import ContactBlock from "../components/ContactBlock.astro";
+import ImagePlaceholder from "../components/ImagePlaceholder.astro";
+import { siteData, waLink } from "../content/siteData";
+import { seoData } from "../content/seo";
+
+const path = "/reparacion-de-televisores";
+const seo = seoData[path];
+
+const steps = [
+    {
+        title: "Contacta",
+        description:
+            "Escríbenos por WhatsApp o trae tu televisor al local. Cuéntanos qué problema tiene.",
+    },
+    {
+        title: "Evaluamos",
+        description:
+            "Revisamos el equipo y te damos una cotización del trabajo.",
+    },
+    {
+        title: "Reparamos",
+        description:
+            "Una vez aprobado, realizamos la reparación con repuestos de calidad.",
+    },
+];
+
+const faqItems = [
+    {
+        question: "¿Cuánto cuesta la reparación?",
+        answer: "El precio depende del diagnóstico. Contáctanos para evaluar tu televisor y darte una cotización.",
+    },
+    {
+        question: "¿Tienen garantía?",
+        answer: "Sí, se ofrece garantía según el trabajo realizado.",
+    },
+    {
+        question: "¿Hacen reparaciones a domicilio?",
+        answer: "La evaluación y reparación se realizan en nuestro local. Puedes traer tu televisor o coordinamos según cercanía.",
+    },
+];
+---
+
+<BaseLayout path={path}>
+    <div class="container">
+        <Breadcrumbs items={seo.breadcrumbs} />
+    </div>
+
+    <!-- Hero -->
+    <section class="hero section">
+        <div class="container">
+            <h1 class="hero-title">Reparación de Televisores en Pudahuel</h1>
+            <p class="hero-subtitle">
+                Servicio técnico profesional para televisores LED y Smart TV.
+                Evaluación y cotización. Más de 30 años de experiencia.
+            </p>
+            <CTAButtons
+                whatsappMessage={siteData.whatsappMessages.reparacion}
+            />
+        </div>
+    </section>
+
+    <!-- Qué reparamos -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">¿Qué reparamos?</h2>
+            <div class="grid grid-2">
+                <div>
+                    <p>Nuestro servicio técnico incluye:</p>
+                    <ul
+                        style="list-style: disc; padding-left: 1.5rem; margin-top: 1rem;"
+                    >
+                        <li>
+                            <strong>Cambio de pantalla:</strong> para televisores
+                            con pantalla dañada o quebrada.
+                        </li>
+                        <li>
+                            <strong>Cambio de LEDs:</strong> cuando la imagen se ve
+                            oscura o no hay retroiluminación.
+                        </li>
+                        <li>
+                            <strong>Cambio de placas:</strong> mainboard, fuente,
+                            T-CON según diagnóstico.
+                        </li>
+                        <li>
+                            <strong>Formateo:</strong> para televisores que están
+                            lentos o con problemas de software.
+                        </li>
+                        <li>
+                            <strong>Programación:</strong> actualización de firmware
+                            y configuración.
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <ImagePlaceholder
+                        title="Técnico trabajando"
+                        description="Imagen de banco de trabajo o técnico reparando un televisor (genérico)"
+                        suggestedPrompt="Técnico electrónico reparando placa de televisor en mesa de trabajo, ambiente profesional"
+                        sizeHint="600x400"
+                    />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proceso -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">¿Cómo funciona?</h2>
+            <Steps steps={steps} />
+        </div>
+    </section>
+
+    <!-- Atención -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Atención en Local</h2>
+            <div
+                class="card"
+                style="max-width: 700px; margin: 0 auto; text-align: center;"
+            >
+                <p>
+                    La evaluación y reparación se realizan en nuestro local en
+                    Pudahuel.
+                </p>
+                <p class="mt-md">
+                    <strong>Dirección:</strong>
+                    {siteData.addressLine}, {siteData.comuna}, {siteData.city}
+                </p>
+                <p>
+                    <strong>Horario:</strong>
+                    {siteData.openingHoursText}
+                </p>
+                <p class="mt-lg text-muted">
+                    Trae tu televisor directamente o coordina por WhatsApp según
+                    tu ubicación.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Garantía -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Garantía</h2>
+            <div
+                class="card"
+                style="max-width: 600px; margin: 0 auto; text-align: center;"
+            >
+                <p>Se ofrece garantía según el trabajo realizado.</p>
+                <p class="mt-md text-muted">
+                    Consulta los detalles al momento de la cotización.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Placeholder imagen -->
+    <section class="section section-alt">
+        <div class="container">
+            <ImagePlaceholder
+                title="Banco de trabajo"
+                description="Imagen del área de trabajo donde se realizan las reparaciones"
+                suggestedPrompt="Banco de trabajo de reparación electrónica con herramientas, multímetro y componentes"
+                sizeHint="1200x600"
+            />
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Preguntas Frecuentes</h2>
+            <FAQAccordion items={faqItems} />
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">¿Necesitas reparar tu televisor?</h2>
+            <ContactBlock />
+        </div>
+    </section>
+</BaseLayout>

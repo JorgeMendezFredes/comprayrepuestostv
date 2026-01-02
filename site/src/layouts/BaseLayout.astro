@@ -1,0 +1,81 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+import { siteData } from '../content/siteData';
+import { seoData, getLocalBusinessSchema, getWebSiteSchema, getBreadcrumbSchema, getFAQSchema } from '../content/seo';
+
+interface Props {
+  path: string;
+  showLocalBusiness?: boolean;
+}
+
+const { path, showLocalBusiness = false } = Astro.props;
+const seo = seoData[path] || seoData["/"];
+
+// JSON-LD schemas
+const localBusinessSchema = showLocalBusiness ? JSON.stringify(getLocalBusinessSchema()) : null;
+const webSiteSchema = path === "/" ? JSON.stringify(getWebSiteSchema()) : null;
+const breadcrumbSchema = seo.breadcrumbs.length > 1 ? JSON.stringify(getBreadcrumbSchema(seo.breadcrumbs)) : null;
+const faqSchema = seo.hasFAQ ? JSON.stringify(getFAQSchema(siteData.faqItems.slice(0, 5))) : null;
+---
+
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO básico -->
+  <title>{seo.title}</title>
+  <meta name="description" content={seo.description}>
+  <link rel="canonical" href={seo.canonical}>
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content={seo.og.title}>
+  <meta property="og:description" content={seo.og.description}>
+  <meta property="og:url" content={seo.og.url}>
+  <meta property="og:type" content={seo.og.type}>
+  <meta property="og:locale" content="es_CL">
+  <meta property="og:site_name" content={siteData.siteName}>
+  
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content={seo.twitter.card}>
+  <meta name="twitter:title" content={seo.twitter.title}>
+  <meta name="twitter:description" content={seo.twitter.description}>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- JSON-LD Schemas -->
+  {localBusinessSchema && (
+    <script type="application/ld+json" set:html={localBusinessSchema}></script>
+  )}
+  {webSiteSchema && (
+    <script type="application/ld+json" set:html={webSiteSchema}></script>
+  )}
+  {breadcrumbSchema && (
+    <script type="application/ld+json" set:html={breadcrumbSchema}></script>
+  )}
+  {faqSchema && (
+    <script type="application/ld+json" set:html={faqSchema}></script>
+  )}
+</head>
+<body>
+  <Header />
+  
+  <main>
+    <slot />
+  </main>
+  
+  <Footer />
+  <WhatsAppFloat />
+</body>
+</html>

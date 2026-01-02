@@ -1,0 +1,203 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import CTAButtons from "../components/CTAButtons.astro";
+import Steps from "../components/Steps.astro";
+import FAQAccordion from "../components/FAQAccordion.astro";
+import ContactBlock from "../components/ContactBlock.astro";
+import ImagePlaceholder from "../components/ImagePlaceholder.astro";
+import { siteData, waLink } from "../content/siteData";
+import { seoData } from "../content/seo";
+
+const path = "/compra-de-televisores";
+const seo = seoData[path];
+
+const steps = [
+    {
+        title: "Contacta",
+        description:
+            "Escríbenos por WhatsApp o llámanos. Envía marca, modelo, pulgadas, estado y fotos de tu televisor.",
+    },
+    {
+        title: "Cotizamos",
+        description:
+            "Evaluamos la información y te damos una oferta justa según el estado del equipo.",
+    },
+    {
+        title: "Coordinamos",
+        description:
+            "Retiramos según cercanía, lo entregas en nuestro local, o envías desde regiones.",
+    },
+];
+
+const faqItems = [
+    {
+        question: "¿Cuánto pagan por un televisor?",
+        answer: "El precio depende del modelo, estado y tamaño. Contáctanos con los detalles para darte una cotización.",
+    },
+    {
+        question: "¿Retiran televisores a domicilio?",
+        answer: "Sí, retiramos televisores según ubicación y cercanía. Coordina por WhatsApp para evaluar tu zona.",
+    },
+    {
+        question: "¿Compran televisores de todo Chile?",
+        answer: "Sí, compramos a nivel nacional. El vendedor envía y paga el envío.",
+    },
+];
+---
+
+<BaseLayout path={path}>
+    <div class="container">
+        <Breadcrumbs items={seo.breadcrumbs} />
+    </div>
+
+    <!-- Hero -->
+    <section class="hero section">
+        <div class="container">
+            <h1 class="hero-title">Compra de Televisores en Santiago</h1>
+            <p class="hero-subtitle">
+                Compramos televisores quebrados, dañados o en mal estado.
+                Distintas marcas y tamaños. Cotización rápida por WhatsApp.
+            </p>
+            <CTAButtons whatsappMessage={siteData.whatsappMessages.compra} />
+        </div>
+    </section>
+
+    <!-- Qué compramos -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">¿Qué televisores compramos?</h2>
+            <div class="grid grid-2">
+                <div>
+                    <h3>Compramos televisores en distintos estados:</h3>
+                    <ul
+                        style="list-style: disc; padding-left: 1.5rem; margin-top: 1rem;"
+                    >
+                        <li>Televisores con pantalla quebrada</li>
+                        <li>Televisores que no encienden</li>
+                        <li>Televisores con problemas de imagen</li>
+                        <li>Televisores con problemas de sonido</li>
+                        <li>Televisores dañados o en mal estado</li>
+                    </ul>
+                    <p class="mt-lg">
+                        Trabajamos con múltiples marcas: <strong
+                            >LG, Samsung, TCL, Hisense, Xiaomi, AOC, Panasonic,
+                            Philips</strong
+                        > y otras.
+                    </p>
+                </div>
+                <div>
+                    <ImagePlaceholder
+                        title="Televisor en recepción"
+                        description="Imagen de un televisor siendo evaluado o recibido en el local"
+                        suggestedPrompt="Televisor LED moderno sobre mesa de trabajo para evaluación técnica"
+                        sizeHint="600x400"
+                    />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Qué NO compramos -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">¿Qué NO compramos?</h2>
+            <div
+                class="card"
+                style="max-width: 600px; margin: 0 auto; text-align: center;"
+            >
+                <p><strong>No compramos:</strong></p>
+                <ul style="list-style: none; margin-top: 1rem;">
+                    <li>❌ Televisores plasma</li>
+                    <li>❌ Modelos muy antiguos (tubo, proyección)</li>
+                </ul>
+                <p class="mt-lg text-muted">
+                    Si tienes dudas sobre tu modelo, consúltanos por WhatsApp.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proceso -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">¿Cómo funciona?</h2>
+            <Steps steps={steps} />
+        </div>
+    </section>
+
+    <!-- Modalidades -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Modalidades de Entrega</h2>
+            <div class="grid grid-3">
+                <div class="card">
+                    <h3 class="card-title">Retiro a Domicilio</h3>
+                    <p class="card-text">
+                        Para Santiago y zonas cercanas, coordinamos retiro según
+                        ubicación.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Entrega en Local</h3>
+                    <p class="card-text">
+                        Trae tu televisor directamente a nuestro local en
+                        Pudahuel.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Envío desde Regiones</h3>
+                    <p class="card-text">
+                        Compramos de todo Chile. El vendedor envía y paga el
+                        envío.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Información para cotizar -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">¿Qué información necesitamos?</h2>
+            <div class="card" style="max-width: 600px; margin: 0 auto;">
+                <p>Para cotizar tu televisor, envíanos por WhatsApp:</p>
+                <ul
+                    style="list-style: decimal; padding-left: 1.5rem; margin-top: 1rem;"
+                >
+                    <li>Marca del televisor</li>
+                    <li>Modelo (lo encuentras en la parte trasera)</li>
+                    <li>Pulgadas de pantalla</li>
+                    <li>Estado actual (qué problema tiene)</li>
+                    <li>Fotos del televisor</li>
+                </ul>
+                <div class="mt-xl text-center">
+                    <a
+                        href={waLink(siteData.whatsappMessages.compra)}
+                        class="btn btn-primary"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        Enviar información por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Preguntas Frecuentes</h2>
+            <FAQAccordion items={faqItems} />
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">¿Listo para vender tu televisor?</h2>
+            <ContactBlock />
+        </div>
+    </section>
+</BaseLayout>

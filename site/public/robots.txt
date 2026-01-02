@@ -1,0 +1,5 @@
+# robots.txt para comprayrepuestostv.cl
+User-agent: *
+Allow: /
+
+Sitemap: https://www.comprayrepuestostv.cl/sitemap.xml
