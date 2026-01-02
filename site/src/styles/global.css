@@ -6,7 +6,26 @@
 /* === IMPORTS === */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
+/* === IMAGE STYLES === */
+.hero-image,
+.section-image {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  object-fit: cover;
+}
+
+.hero-image {
+  max-height: 500px;
+}
+
+.section-image {
+  max-height: 400px;
+}
+
 /* === RESET === */
+
 *,
 *::before,
 *::after {

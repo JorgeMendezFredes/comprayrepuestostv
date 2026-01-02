@@ -246,7 +246,7 @@ Este archivo es el tracker central de todas las tareas basadas en los 6 archivos
 ## Pendientes Globales
 
 1. [x] **Mejorar CSS para diseño profesional/premium**
-2. [ ] Agregar imágenes reales
+2. [x] **Agregar imágenes (generadas con IA)**
 3. [ ] Deploy a hosting
 4. [ ] Validar JSON-LD en Rich Results Test
 5. [ ] Lighthouse audit
