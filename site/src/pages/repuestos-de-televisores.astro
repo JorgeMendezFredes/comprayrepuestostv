@@ -6,7 +6,6 @@ import Steps from "../components/Steps.astro";
 import BrandsBlock from "../components/BrandsBlock.astro";
 import FAQAccordion from "../components/FAQAccordion.astro";
 import ContactBlock from "../components/ContactBlock.astro";
-import ImagePlaceholder from "../components/ImagePlaceholder.astro";
 import { siteData, waLink } from "../content/siteData";
 import { seoData } from "../content/seo";
 
@@ -91,11 +90,11 @@ const faqItems = [
                     </p>
                 </div>
                 <div>
-                    <ImagePlaceholder
-                        title="Estanterías con repuestos"
-                        description="Imagen de estanterías organizadas con repuestos de televisores"
-                        suggestedPrompt="Estanterías de tienda de electrónica llenas de placas y componentes de televisores, ambiente ordenado"
-                        sizeHint="600x400"
+                    <img
+                        src="/images/hero-repuestos.png"
+                        alt="Estanterías con repuestos de televisores"
+                        class="section-image"
+                        loading="lazy"
                     />
                 </div>
             </div>
@@ -157,14 +156,14 @@ const faqItems = [
         </div>
     </section>
 
-    <!-- Placeholder imagen -->
+    <!-- Imagen repuestos -->
     <section class="section section-alt">
         <div class="container">
-            <ImagePlaceholder
-                title="Close-up de repuestos"
-                description="Imagen de cerca de repuestos genéricos como placas o tiras LED"
-                suggestedPrompt="Close-up de placa electrónica de televisor LED, componentes visibles, fondo neutro"
-                sizeHint="1200x600"
+            <img
+                src="/images/tecnico-reparacion.png"
+                alt="Close-up de repuestos de televisores"
+                class="hero-image"
+                loading="lazy"
             />
         </div>
     </section>

@@ -5,7 +5,6 @@ import CTAButtons from "../components/CTAButtons.astro";
 import Steps from "../components/Steps.astro";
 import FAQAccordion from "../components/FAQAccordion.astro";
 import ContactBlock from "../components/ContactBlock.astro";
-import ImagePlaceholder from "../components/ImagePlaceholder.astro";
 import { siteData, waLink } from "../content/siteData";
 import { seoData } from "../content/seo";
 
@@ -98,11 +97,11 @@ const faqItems = [
                     </ul>
                 </div>
                 <div>
-                    <ImagePlaceholder
-                        title="Técnico trabajando"
-                        description="Imagen de banco de trabajo o técnico reparando un televisor (genérico)"
-                        suggestedPrompt="Técnico electrónico reparando placa de televisor en mesa de trabajo, ambiente profesional"
-                        sizeHint="600x400"
+                    <img
+                        src="/images/tecnico-reparacion.png"
+                        alt="Técnico reparando televisor"
+                        class="section-image"
+                        loading="lazy"
                     />
                 </div>
             </div>
@@ -161,14 +160,14 @@ const faqItems = [
         </div>
     </section>
 
-    <!-- Placeholder imagen -->
+    <!-- Imagen banco trabajo -->
     <section class="section section-alt">
         <div class="container">
-            <ImagePlaceholder
-                title="Banco de trabajo"
-                description="Imagen del área de trabajo donde se realizan las reparaciones"
-                suggestedPrompt="Banco de trabajo de reparación electrónica con herramientas, multímetro y componentes"
-                sizeHint="1200x600"
+            <img
+                src="/images/hero-repuestos.png"
+                alt="Banco de trabajo con herramientas de reparación"
+                class="hero-image"
+                loading="lazy"
             />
         </div>
     </section>
