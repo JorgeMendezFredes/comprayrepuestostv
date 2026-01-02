@@ -271,10 +271,11 @@ Este archivo es el tracker central de todas las tareas basadas en los 6 archivos
 ## Pendientes Post-Implementación
 
 1. [x] **Deploy a hosting** — Automático vía GitHub (no requiere acción manual)
-2. [ ] Validar JSON-LD en Rich Results Test
-3. [ ] Lighthouse audit (después del deploy)
-4. [ ] Google Search Console (verificar dominio, enviar sitemap)
-5. [ ] (Opcional) Reemplazar imágenes IA por fotos reales
+2. [x] **Revisar menú en móvil (arreglado CSS)**
+3. [ ] Validar JSON-LD en Rich Results Test
+4. [ ] Lighthouse audit (después del deploy)
+5. [ ] Google Search Console (verificar dominio, enviar sitemap)
+6. [ ] (Opcional) Reemplazar imágenes IA por fotos reales
 
 
 ---
