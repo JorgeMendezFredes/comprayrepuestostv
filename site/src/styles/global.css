@@ -1315,6 +1315,10 @@ strong {
   font-size: var(--font-size-sm);
 }
 
+.footer strong {
+  color: white;
+}
+
 /* === BREADCRUMBS === */
 .breadcrumbs {
   padding: var(--spacing-4) 0;

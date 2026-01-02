@@ -26,7 +26,7 @@ export const siteData = {
         { slug: "compra-de-televisores", name: "Compra de Televisores", shortDesc: "Compramos televisores en cualquier estado" },
         { slug: "repuestos-de-televisores", name: "Repuestos de Televisores", shortDesc: "Repuestos según disponibilidad" },
         { slug: "reparacion-de-televisores", name: "Reparación de Televisores", shortDesc: "Servicio técnico profesional" },
-        { slug: "productos", name: "Productos", shortDesc: "Controles, bases y patas" }
+        { slug: "productos", name: "Productos", shortDesc: "Controles, bases y soportes" },
     ],
 
     // Marcas

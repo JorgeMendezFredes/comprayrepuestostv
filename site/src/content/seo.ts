@@ -111,19 +111,19 @@ export const seoData: Record<string, PageSEO> = {
     },
 
     "/productos": {
-        title: "Controles Remotos, Bases y Patas para TV | Accesorios TV",
-        description: "Controles remotos con pilas incluidas, bases y patas para televisores. Múltiples marcas. Retiro en local o despacho nacional.",
+        title: "Controles Remotos, Bases y Soportes para TV | Accesorios TV",
+        description: "Controles remotos con pilas incluidas, bases y soportes para televisores. Múltiples marcas. Retiro en local o despacho nacional.",
         canonical: `${domain}/productos`,
         og: {
             title: "Productos y Accesorios para TV | Desarmaduría de Televisores",
-            description: "Controles remotos, bases y patas para televisores. Múltiples marcas disponibles.",
+            description: "Controles remotos, bases y soportes para televisores. Múltiples marcas disponibles.",
             url: `${domain}/productos`,
             type: "website"
         },
         twitter: {
             card: "summary",
             title: "Productos y Accesorios para TV | Desarmaduría de Televisores",
-            description: "Controles remotos, bases y patas para televisores. Múltiples marcas."
+            description: "Controles remotos, bases y soportes para televisores. Múltiples marcas."
         },
         breadcrumbs: [
             { name: "Inicio", url: `${domain}/` },
